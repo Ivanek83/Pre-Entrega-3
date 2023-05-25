@@ -1,5 +1,28 @@
 {% extends 'home/base_modelo.html' %}
 
 {% block contenido %}
-    <h2>Este es el Index con la herencia de base</h2>
+
+    <style>
+    .linea {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        background-color: #e7eaf8;
+    }
+    </style>
+
+    <h2>Pagina Principal</h2>
+    <h3>Recorrer los Formularios</h3>
+
+    <div align="center" class="linea">
+    <a href="{% url 'home:identificar-medio' %}">Identificar Medio</a>
+    </div>
+    
+    <div align="center" class="linea">
+    <a href="{% url 'home:cargar-autor' %}">Cargar Autor</a>
+    </div>
+    
+    <div align="center" class="linea">
+    <a href="{% url 'home:subir-articulo' %}">Subir Articulo</a>
+    </div>
+
 {% endblock contenido %}

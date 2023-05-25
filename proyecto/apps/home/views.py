@@ -38,4 +38,4 @@ def identificar_medio(request):
     else:
         form = forms.MedioForm()
         contexto = {'form': form }
-        return render(request, 'home/cargar_autor.html', context=contexto)    
+        return render(request, 'home/identificar_medio.html', context=contexto)    

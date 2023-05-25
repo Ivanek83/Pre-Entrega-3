@@ -1,6 +1,8 @@
 {% extends 'home/base_modelo.html' %}
 
 {% block contenido %}
+    
+    
     <h2>Subir Articulo</h2>
 
     <form action="" method="post" enctype="multipart/form-data">
@@ -8,5 +10,9 @@
         {{ form.as_p }}
         <input type="submit" value="Subir Articulo">
     </form>
+
+    
+    <a href="{% url 'home:index' %}">Ir a menu principal</a>
+    
 
 {% endblock contenido %}
