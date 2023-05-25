@@ -1,0 +1,12 @@
+{% extends 'home/base_modelo.html' %}
+
+{% block contenido %}
+    <h2>Cargar Autor</h2>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Cargar Autor">
+    </form>
+
+{% endblock contenido %}
