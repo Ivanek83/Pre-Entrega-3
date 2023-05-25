@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 # Create your views here.
 from . import forms
-
+from .models import Medio, Autor, Articulo
 
 def index(request):
     return render(request, 'home/index.html')
@@ -39,3 +39,13 @@ def identificar_medio(request):
         form = forms.MedioForm()
         contexto = {'form': form }
         return render(request, 'home/identificar_medio.html', context=contexto)    
+
+def mostrar_datos(request):
+    autor = Autor.objects.all()
+    medio = Medio.objects.all()
+    articulos = Articulo.objects.all()
+    contexto = {
+        'autor': autor, 
+        'medio':medio, 
+        'articulos':articulos}
+    return render(request, 'home/mostrar_datos.html', context=contexto)

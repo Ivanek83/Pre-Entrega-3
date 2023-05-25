@@ -1,0 +1,61 @@
+{% extends 'home/base_modelo.html' %}
+
+{% block contenido %}
+
+<style>
+
+    table {
+        width: flex;
+        border-collapse: collapse;
+        margin: 30px auto;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>
+
+<h2>Mostrando Datos</h2>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Autor</th>
+            <th>Mail contacto</th>
+            <th>Titulo del Articulo</th>
+            <th>URL Articulo</th>
+            <th>Fecha publicacion</th>
+            <th>Medio de  publicacion</th>
+            <th>Genero</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for datos in articulos %}
+        <tr>
+            <td>{{datos.autor_fk.nombre}} {{datos.autor_fk.apellido}}</td>
+            <td>{{datos.autor_fk.email}}</td>
+            <td>{{datos.titulo}}</td>
+            <td> <a href="{{datos.articulo}}">{{datos.articulo}}</a> </td>
+            <td>{{datos.fecha}}</td>
+            <td>{{datos.medio_fk.medio}}</td>
+            <td>{{datos.medio_fk.genero}}</td>
+
+        </tr>
+        {% endfor %}
+
+
+
+    </tbody>
+
+</table>
+
+<div style="margin-top: 50px;">
+<a href="{% url 'home:index' %}">Ir a menu principal</a>
+</div>
+
+{% endblock contenido %}
