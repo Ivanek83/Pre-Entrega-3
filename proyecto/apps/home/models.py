@@ -2,13 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-class Articulo(models.Model):
-    titulo = models.CharField(max_length=100)
-    descripcion = models.CharField(max_length=300)
-    fecha = models.DateField()
+class Medio(models.Model):
+    medio = models.CharField(max_length=100)
+    genero = models.CharField(max_length=30)
     def __str__(self):
-        return self.titulo
-    
+        return self.medio
+
     
 class Autor(models.Model):
     nombre = models.CharField(max_length=100)
@@ -18,11 +17,15 @@ class Autor(models.Model):
         return self.nombre
     
     
-class Medio(models.Model):
-    medio = models.CharField(max_length=100)
-    genero = models.CharField(max_length=30)
+    
+class Articulo(models.Model):
+    titulo = models.CharField(max_length=100)
+    fecha = models.DateField()
+    medio_fk = models.ForeignKey(Medio, on_delete=models.SET_NULL, null=True)
+    autor_fk = models.ForeignKey(Autor, on_delete=models.SET_NULL, null=True)
+    articulo = models.TextField(null=True, blank=False)
     def __str__(self):
-        return self.medio
+        return self.titulo
     
 
     
